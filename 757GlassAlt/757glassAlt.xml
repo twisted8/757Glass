@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="Glass Altimeter" Version="1.0">
+
+    <Element>
+        <Position X="13" Y="16"/>
+        <Container/>
+        <Update Frequency="6"/>
+        <Element>
+            <Size X="150" Y="170"/>
+            <Visible>(A:CIRCUIT HYDRAULIC PUMP ON, bool)</Visible>
+
+           
+            <!-- ==================================== Altitude ================================================= -->
+            
+
+
+
+	<Element>
+                <Position X="105" Y="10"/>
+                <!-- Altitude Tape -->
+                <Element>
+                    <Position X="0" Y="15"/>
+                    <MaskImage Name="Altitude_number_strip_mask.bmp" Bright="Yes" ImageSizes="31,98,52,220">
+                        <Axis X="0" Y="54"/>
+                    </MaskImage>
+                    <Image Name="Altitude_number_strip.bmp" Bright="Yes" ImageSizes="31,7290,50,12228">
+                        <Nonlinearity>
+                            <Item Value="0" X="0" Y="7078"/>
+                            <Item Value="60000" X="0" Y="1078"/>
+                        </Nonlinearity>
+                    </Image>
+                    <Shift>
+                        <Value Minimum="-1000" Maximum="69000">(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:1, meters) } els{ (A:Indicated Altitude:1, feet) }</Value>
+                    </Shift>
+                </Element>
+                <!-- Radio Altimeter Height -->
+                <Element>
+                    <Position X="0" Y="69"/>
+                    <Image Name="Altitude_lai.bmp" Bright="Yes" ImageSizes="31,7,52,11">
+                        <Axis X="0" Y="1"/>
+                    </Image>
+                    <Shift>
+                        <Value>(P:Units of measure, enum) 2 == if{ (A:Radio height, meters) } els{ (A:Radio height, feet) } 0 max </Value>
+                        <Scale Y="0.1"/>
+                    </Shift>
+                    <Visible>(A:Radio height, feet) d 400 &lt; r 0 &gt; &amp;&amp;</Visible>
+                </Element>
+                <!-- Altitude Window -->
+                <Element>
+                    <Position X="0" Y="69"/>
+                    <Image Name="Altitude_window.bmp" Bright="Yes" ImageSizes="37,26,57,38">
+                        <Axis X="1" Y="13"/>
+                    </Image>
+                </Element>
+                <!-- Altitude Bug -->
+                <Element>
+                    <Position X="0" Y="69"/>
+                    <Image Name="Altitude_bug.bmp" Bright="Yes" ImageSizes="9,14,17,25">
+                        <Axis X="7" Y="7"/>
+                    </Image>
+                    <Shift>
+                        <Value Minimum="-230" Maximum="230">(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:1, meters) (C:CABIN:MCPAlt, meters)  -  } els{ (A:Indicated Altitude:1, feet) (C:CABIN:MCPAlt, feet)  -  } </Value>
+                        <Scale Y="0.6"/>
+                    </Shift>
+                </Element>
+                <!-- ALT 10,000's Digit -->
+                <Element>
+                    <Position X="6" Y="59"/>
+                    <MaskImage Name="altitude_large_mask.bmp" Bright="Yes" ImageSizes="9,20,17,28">
+                        <Axis X="0" Y="9"/>
+                    </MaskImage>
+                    <Image Name="altitude_large_1000nds_strip.bmp" Bright="Yes" ImageSizes="5,197,8,315">
+                        <Nonlinearity>
+                            <Item Value="0" X="0" Y="186"/>
+                            <Item Value="9950" X="0" Y="186"/>
+                            <Item Value="10000" X="0" Y="170"/>
+                            <Item Value="19950" X="0" Y="170"/>
+                            <Item Value="20000" X="0" Y="154"/>
+                            <Item Value="29950" X="0" Y="154"/>
+                            <Item Value="30000" X="0" Y="138"/>
+                            <Item Value="39950" X="0" Y="138"/>
+                            <Item Value="40000" X="0" Y="122"/>
+                            <Item Value="49950" X="0" Y="122"/>
+                            <Item Value="50000" X="0" Y="105"/>
+                            <Item Value="59950" X="0" Y="105"/>
+                            <Item Value="60000" X="0" Y="89"/>
+                            <Item Value="69950" X="0" Y="89"/>
+                            <Item Value="70000" X="0" Y="74"/>
+                            <Item Value="79950" X="0" Y="74"/>
+                            <Item Value="80000" X="0" Y="58"/>
+                            <Item Value="89950" X="0" Y="58"/>
+                            <Item Value="90000" X="0" Y="42"/>
+                            <Item Value="99950" X="0" Y="42"/>
+                            <Item Value="99999.99" X="0" Y="28"/>
+                        </Nonlinearity>
+                    </Image>
+                    <Shift>
+                        <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:1, meters) } els{ (A:Indicated Altitude:1, feet) } 0 max</Value>
+                    </Shift>
+                </Element>
+                <!-- ALT 1,000's Digit -->
+                <Element>
+                    <Position X="12" Y="59"/>
+                    <MaskImage Name="altitude_large_mask.bmp" Bright="Yes" ImageSizes="9,20,17,28">
+                        <Axis X="0" Y="9"/>
+                    </MaskImage>
+                    <Image Name="altitude_large_1000nds_strip.bmp" Bright="Yes" ImageSizes="5,197,8,315">
+                        <Nonlinearity>
+                            <Item Value="0" X="0" Y="186"/>
+                            <Item Value="950" X="0" Y="186"/>
+                            <Item Value="1000" X="0" Y="170"/>
+                            <Item Value="1950" X="0" Y="170"/>
+                            <Item Value="2000" X="0" Y="154"/>
+                            <Item Value="2950" X="0" Y="154"/>
+                            <Item Value="3000" X="0" Y="138"/>
+                            <Item Value="3950" X="0" Y="138"/>
+                            <Item Value="4000" X="0" Y="122"/>
+                            <Item Value="4950" X="0" Y="122"/>
+                            <Item Value="5000" X="0" Y="105"/>
+                            <Item Value="5950" X="0" Y="105"/>
+                            <Item Value="6000" X="0" Y="89"/>
+                            <Item Value="6950" X="0" Y="89"/>
+                            <Item Value="7000" X="0" Y="74"/>
+                            <Item Value="7950" X="0" Y="74"/>
+                            <Item Value="8000" X="0" Y="58"/>
+                            <Item Value="8950" X="0" Y="58"/>
+                            <Item Value="9000" X="0" Y="42"/>
+                            <Item Value="9950" X="0" Y="42"/>
+                            <Item Value="9999.99" X="0" Y="28"/>
+                        </Nonlinearity>
+                    </Image>
+                    <Shift>
+                        <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:1, meters) } els{ (A:Indicated Altitude:1, feet) } 0 max 10000 %</Value>
+                    </Shift>
+                </Element>
+                <!-- ALT 100's Digit -->
+                <Element>
+                    <Position X="18" Y="59"/>
+                    <MaskImage Name="altitude_small_mask.bmp" Bright="Yes" ImageSizes="11,20,6,10">
+                        <Axis X="0" Y="10"/>
+                    </MaskImage>
+                    <Image Name="altitude_small_100rds_strip.bmp" Bright="Yes" ImageSizes="4,197,6,315">
+                        <Nonlinearity>
+                            <Item Value="0" X="0" Y="187"/>
+                            <Item Value="75" X="0" Y="187"/>
+                            <Item Value="100" X="0" Y="171"/>
+                            <Item Value="175" X="0" Y="171"/>
+                            <Item Value="200" X="0" Y="156"/>
+                            <Item Value="275" X="0" Y="156"/>
+                            <Item Value="300" X="0" Y="139"/>
+                            <Item Value="375" X="0" Y="139"/>
+                            <Item Value="400" X="0" Y="124"/>
+                            <Item Value="475" X="0" Y="124"/>
+                            <Item Value="500" X="0" Y="107"/>
+                            <Item Value="575" X="0" Y="107"/>
+                            <Item Value="600" X="0" Y="91"/>
+                            <Item Value="675" X="0" Y="91"/>
+                            <Item Value="700" X="0" Y="75"/>
+                            <Item Value="775" X="0" Y="75"/>
+                            <Item Value="800" X="0" Y="59"/>
+                            <Item Value="875" X="0" Y="59"/>
+                            <Item Value="900" X="0" Y="43"/>
+                            <Item Value="975" X="0" Y="43"/>
+                            <Item Value="999.99" X="0" Y="28"/>
+                        </Nonlinearity>
+                    </Image>
+                    <Shift>
+                        <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:1, meters) } els{ (A:Indicated Altitude:1, feet) } 0 max 1000 %</Value>
+                    </Shift>
+                </Element>
+                <!-- ALT 10's and 1's Digits -->
+                <Element>
+                    <Position X="23" Y="59"/>
+                    <MaskImage Name="Altitude_strip_tens_mask.bmp" Bright="Yes" ImageSizes="9,20,14,30">
+                        <Axis X="0" Y="9"/>
+                    </MaskImage>
+                    <Image Name="Altitude_strip_tens.bmp" Bright="Yes" ImageSizes="9,63,14,79">
+                        <Nonlinearity>
+                            <Item Value="0" X="0" Y="50"/>
+                            <Item Value="100" X="0" Y="10"/>
+                        </Nonlinearity>
+                    </Image>
+                    <Shift>
+                        <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude:1, meters) } els{ (A:Indicated Altitude:1, feet) } 0 max 100 %</Value>
+                    </Shift>
+                </Element>
+
+               <Element>
+                    <Position X="1" Y="0"/>
+                    <Text Bright="Yes" X="30" Y="12" Length="5" Fixed="Yes" Font="Quartz" Color="#FF00FF" Adjust="Center" VerticalAdjust="Center">
+                        <String>%((C:CABIN:MCPAlt))%!05d!</String>
+                    </Text>
+               </Element>
+                <Element>
+                    <Position X="1" Y="117"/>
+                    <Text Bright="Yes" X="30" Y="12" Length="5" Fixed="Yes" Font="Quartz" Color="#1296A5" Adjust="Center" VerticalAdjust="Center">
+                        <String>%((A:Kohlsman setting hg:1, inHg) 0 max 99.99 min)%!05.2f!</String>
+                    </Text>
+                </Element>
+
+                <Element>
+                    <Position X="1" Y="130"/>
+                    <Text Bright="Yes" X="30" Y="12" Length="5" Fixed="Yes" Font="Quartz" Color="#FF00FF" Adjust="Center" VerticalAdjust="Center">
+                        <String>%((C:CABIN:MCPVS))%!+05d!</String>
+                    </Text>
+                </Element>
+
+
+
+
+            </Element>
+        </Element>
+    </Element>
+</Gauge>

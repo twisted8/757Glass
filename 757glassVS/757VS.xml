@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="757VS">
+    <Descr>AceXML Document</Descr>
+    <Filename>757VS.xml</Filename>
+    <SimGauge.Gauge id="757 Vertical Speed" ArtDirectory="D:\m67\757 gauge\757glass">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Element id="Element">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:CIRCUIT HYDRAULIC PUMP ON, bool)</Visibility>
+            <Image id="vsback.bmp" Name="vsback.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+            <Element id="Needle">
+                <FloatPosition>153.000,86.000</FloatPosition>
+                <Image id="arrow.bmp" Name="arrow.bmp">
+                    <Transparent>True</Transparent>
+                    <Axis>110.000,8.000</Axis>
+                </Image>
+                <Rotation id="Rotation">
+                    <DegreesPointsTo>180.000</DegreesPointsTo>
+                    <Expression id="Expression">
+                        <Minimum>-60.000</Minimum>
+                        <Maximum>60.000</Maximum>
+                        <Script>(A:Vertical speed,feet per minute) 100 /</Script>
+                    </Expression>
+                    <NonlinearityTable id="NonlinearityTable">
+                        <NonlinearityEntry id="NonlinearityEntry">
+                            <ExpressionResult>-60.000</ExpressionResult>
+                            <FloatPosition>26.000,154.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry2">
+                            <ExpressionResult>-20.000</ExpressionResult>
+                            <FloatPosition>18.000,145.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry3">
+                            <ExpressionResult>-10.000</ExpressionResult>
+                            <FloatPosition>14.000,125.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry4">
+                            <ExpressionResult>0.000</ExpressionResult>
+                            <FloatPosition>11.000,89.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry5">
+                            <ExpressionResult>10.000</ExpressionResult>
+                            <FloatPosition>14.000,55.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry6">
+                            <ExpressionResult>20.000</ExpressionResult>
+                            <FloatPosition>18.000,30.000</FloatPosition>
+                        </NonlinearityEntry>
+                        <NonlinearityEntry id="NonlinearityEntry7">
+                            <ExpressionResult>60.000</ExpressionResult>
+                            <FloatPosition>26.000,18.000</FloatPosition>
+                        </NonlinearityEntry>
+                    </NonlinearityTable>
+                </Rotation>
+            </Element>
+        </Element>
+    </SimGauge.Gauge>
+</SimBase.Document>
